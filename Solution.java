@@ -6,15 +6,21 @@ import java.util.Scanner;
 public class Solution {
 
 	Hashtable<Integer, Integer> heuristicValue;
+	int gridHeuristic;
 	Integer[][] goalMap;
 	Integer[][] grid;
 	int N;
 
+	static enum Movement {
+		UP, DOWN, LEFT, RIGHT
+	}
+
 	public Solution(int k) {
 		// TODO Auto-generated constructor stub
-		heuristicValue = new Hashtable<Integer, Integer>();
-		goalMap = new Integer[k][k];
-		N = k;
+		this.heuristicValue = new Hashtable<Integer, Integer>();
+		this.goalMap = new Integer[k][k];
+		this.N = k;
+		this.gridHeuristic = 0;
 		int count = 0;
 		for (int i = 0; i < k; i++) {
 			for (int j = 0; j < k; j++) {
@@ -39,6 +45,8 @@ public class Solution {
 		return this.heuristicValue.get(key);
 	}
 
+	
+	
 	public void setHeuristicValue(int row, int col, int cell) {
 		int goalRow, goalCol;
 		goalRow = 0;
@@ -46,7 +54,30 @@ public class Solution {
 			goalRow++;
 		goalCol = cell - goalRow * N;
 		int value = Math.abs(goalRow - row) + Math.abs(goalCol - col);
+		this.gridHeuristic += value;
 		this.heuristicValue.put(cell, value);
+	}
+
+	public void move(Movement m) {
+		
+		switch (m) {
+		case UP: {
+			
+			break;
+		}
+		case DOWN: {
+			
+			break;
+		}
+		case LEFT: {
+			
+			break;
+		}
+		case RIGHT: {
+
+			break;
+		}
+		}
 	}
 
 	public static void main(String[] args) {
